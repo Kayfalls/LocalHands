@@ -1,14 +1,19 @@
-const API_BASE_URL = process.env.EXPO_PUBLIC_API_BASE_URL ?? "http://localhost:8000";
+import axios from "axios";
+import { getToken } from "@/services/auth-storage";
 
-export async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(`${API_BASE_URL}${path}`, {
-    headers: { "Content-Type": "application/json", ...(init?.headers ?? {}) },
-    ...init,
-  });
+const api = axios.create({
+  baseURL: process.env.EXPO_PUBLIC_API_BASE_URL ?? "http://localhost:8000",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
-  if (!response.ok) {
-    throw new Error(`API request failed: ${response.status}`);
+api.interceptors.request.use(async (config) => {
+  const token = await getToken();
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
   }
+  return config;
+});
 
-  return (await response.json()) as T;
-}
+export default api;
