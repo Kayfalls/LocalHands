@@ -1,1 +1,1 @@
-# Shared schema package placeholder.
+"""Shared schema exports."""

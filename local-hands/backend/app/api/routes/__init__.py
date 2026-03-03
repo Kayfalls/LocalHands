@@ -1,10 +1,10 @@
 from fastapi import APIRouter
 
-from app.services.analytics.routes import router as analytics_router
-from app.services.auth.routes import router as auth_router
-from app.services.jobs.routes import router as jobs_router
-from app.services.matching.routes import router as matching_router
-from app.services.profile.routes import router as profile_router
+from app.analytics.routes import router as analytics_router
+from app.auth.routes import router as auth_router
+from app.jobs.routes import router as jobs_router
+from app.matching.routes import router as matching_router
+from app.profile.routes import router as profile_router
 
 api_router = APIRouter()
 api_router.include_router(auth_router, prefix="/auth", tags=["auth"])
