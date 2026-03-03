@@ -1,14 +1,22 @@
-# Contributing Guide
+# Contributing
 
 ## Branching
 
-- Use feature branches by domain:
-  - `feat/mobile-*`
-  - `feat/web-*`
-  - `feat/backend-*`
+- `feat/backend-*`
+- `feat/web-*`
+- `feat/mobile-*`
+- `feat/docs-*`
 
-## PR Checklist
+## API Change Workflow
 
-- API changes reflected in `shared/contracts/openapi.yaml`
-- Web and Mobile API client compatibility verified
-- Docker services build successfully
+1. Update backend schema/routes
+2. Update `shared/contracts/openapi.yaml`
+3. Update `shared/types/api.ts`
+4. Verify web/mobile clients still compile
+
+## Pull Request Checklist
+
+- [ ] Docker build passes for affected services
+- [ ] New environment variables documented in `.env.example`
+- [ ] Role access behavior reviewed for protected routes
+- [ ] Docs updated when architecture/deployment changes
