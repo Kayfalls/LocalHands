@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ProfileCard } from "@/components/profile-card";
 import { RoleGuard } from "@/components/role-guard";
 
@@ -8,9 +9,17 @@ export default function WorkerDashboardPage() {
     <RoleGuard allow={["worker", "admin"]}>
       <main className="min-h-screen p-6 md:p-10">
         <section className="max-w-5xl mx-auto">
-          <header className="mb-6">
-            <h1 className="text-3xl font-semibold">Worker Dashboard</h1>
-            <p className="text-neutral-600">Build your profile and improve your job-match score.</p>
+          <header className="mb-8 flex justify-between items-start">
+            <div>
+              <h1 className="text-3xl font-semibold">Worker Dashboard</h1>
+              <p className="text-neutral-600">Build your profile and improve your job-match score.</p>
+            </div>
+            <Link
+              href="/worker/settings"
+              className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition text-sm font-medium"
+            >
+              Edit Profile
+            </Link>
           </header>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">

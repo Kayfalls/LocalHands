@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { AnalyticsChart } from "@/components/analytics-chart";
@@ -29,9 +30,17 @@ export default function EmployerDashboardPage() {
     <RoleGuard allow={["employer", "admin"]}>
       <main className="min-h-screen p-6 md:p-10">
         <section className="max-w-6xl mx-auto">
-          <header className="mb-6">
-            <h1 className="text-3xl font-semibold">Employer Dashboard</h1>
-            <p className="text-neutral-600">Track job fill velocity and candidate quality across township regions.</p>
+          <header className="mb-6 flex justify-between items-start">
+            <div>
+              <h1 className="text-3xl font-semibold">Employer Dashboard</h1>
+              <p className="text-neutral-600">Track job fill velocity and candidate quality across township regions.</p>
+            </div>
+            <Link
+              href="/employer/settings"
+              className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition text-sm font-medium"
+            >
+              Company Settings
+            </Link>
           </header>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
