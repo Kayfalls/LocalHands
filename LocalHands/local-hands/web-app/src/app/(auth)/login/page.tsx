@@ -46,6 +46,12 @@ export default function LoginPage() {
         />
         {error ? <p className="text-sm text-[#B11226] mt-4">{error}</p> : null}
         <button className="w-full mt-6 bg-[#B11226] text-white rounded-2xl py-3 hover:bg-[#8e0d1e] transition-colors">Continue</button>
+        <p className="text-sm text-neutral-600 mt-4 text-center">
+          Don't have an account?{" "}
+          <a href="/signup" className="text-[#B11226] font-medium hover:underline">
+            Sign Up
+          </a>
+        </p>
       </form>
     </main>
   );
