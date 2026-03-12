@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ProfileCard } from "@/components/profile-card";
+import { MessageChat } from "@/components/message-chat";
 import { RoleGuard } from "@/components/role-guard";
 
 export default function WorkerDashboardPage() {
@@ -26,6 +27,11 @@ export default function WorkerDashboardPage() {
             <ProfileCard name="Nomsa D." township="Khayelitsha" skills={["Electrical", "Safety", "Maintenance"]} />
             <ProfileCard name="Sipho K." township="Soweto" skills={["Plumbing", "Repairs", "Customer Service"]} />
             <ProfileCard name="Anele M." township="Mamelodi" skills={["Carpentry", "Finishing", "Measurement"]} />
+          </div>
+
+          <div className="mt-10">
+            <h2 className="text-2xl font-semibold mb-4">Messages</h2>
+            <MessageChat currentUserRole="worker" />
           </div>
         </section>
       </main>

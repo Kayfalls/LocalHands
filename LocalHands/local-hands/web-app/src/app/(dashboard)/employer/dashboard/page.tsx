@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import { AnalyticsChart } from "@/components/analytics-chart";
 import { MatchRing } from "@/components/match-ring";
+import { MessageChat } from "@/components/message-chat";
 import { RoleGuard } from "@/components/role-guard";
 import apiClient from "@/lib/api-client";
 import { AnalyticsOverview } from "@/types/api";
@@ -77,6 +78,11 @@ export default function EmployerDashboardPage() {
                 <li className="p-3 rounded-xl border border-[#f4d5da]">Export weekly analytics for HR leadership</li>
               </ul>
             </article>
+          </div>
+
+          <div className="mt-10">
+            <h2 className="text-xl font-semibold mb-4">Worker Messages</h2>
+            <MessageChat currentUserRole="employer" />
           </div>
         </section>
       </main>
