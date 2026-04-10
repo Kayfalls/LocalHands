@@ -1,1 +1,0 @@
-"""Local Hands backend package."""
